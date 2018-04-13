@@ -11,21 +11,21 @@ Variables         Config.py
 *** Test Cases ***
 发动机状态
     等待连接成功
-    设置Vehicle上传频率    5
+    设置Vehicle上传频率    1
     Run Keyword And Continue On Failure    设置发动机状态    KeyOff
     Sleep    10
     Run Keyword And Continue On Failure    获取发动机状态    expected=KeyOff
     Sleep    1
     Run Keyword And Continue On Failure    设置发动机状态    KeyOn
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取发动机状态    expected=KeyOn
     Sleep    1
     Run Keyword And Continue On Failure    设置发动机状态    Cranking
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取发动机状态    expected=Cranking
     Sleep    1
     Run Keyword And Continue On Failure    设置发动机状态    Running
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取发动机状态    expected=Running
 
 雨刷状态
@@ -69,44 +69,44 @@ Variables         Config.py
     [Documentation]    上报以下状态：
     ...    "P" / "R" / "N" / "D" / "S" / "Manual1" / "Manual2" / "Manual3"
     等待连接成功
-    设置Vehicle上传频率    5
+    设置Vehicle上传频率    1
     Run Keyword And Continue On Failure    设置变速箱状态    P
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=P
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    R
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=R
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    N
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=N
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    D
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=D
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    Manual1
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=Manual1
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    Manual2
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=Manual2
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    Manual3
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=Manual3
     Sleep    1
     Run Keyword And Continue On Failure    设置变速箱状态    S
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取变速箱状态    expected=S
 
 车门状态
     [Documentation]    上报以下状态：
     ...    "左前门" / "右前门" / "左后门" / "右后门" / "后备箱" / "门锁"
     等待连接成功
-    设置Vehicle上传频率    5
+    设置Vehicle上传频率    1
     Run Keyword And Continue On Failure    设置左前门状态    Open
     Sleep    10
     Run Keyword And Continue On Failure    获取左前门状态    expected=On
@@ -183,7 +183,7 @@ Variables         Config.py
     [Documentation]    上报以下状态：
     ...    "前除霜" / "空调温度"
     等待连接成功
-    设置Vehicle上传频率    5
+    设置Vehicle上传频率    1
     Comment    Run Keyword And Continue On Failure    设置空调状态    On
     Comment    Sleep    10
     Comment    Run Keyword And Continue On Failure    获取空调状态    expected=On
@@ -193,11 +193,11 @@ Variables         Config.py
     Comment    Run Keyword And Continue On Failure    获取空调状态    expected=Off
     Comment    Sleep    1
     Run Keyword And Continue On Failure    设置前除霜状态    On
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取前除霜状态    expected=On
     Sleep    1
     Run Keyword And Continue On Failure    设置前除霜状态    Off
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取前除霜状态    expected=Off
     Comment    Sleep    1
     Comment    Run Keyword And Continue On Failure    设置后除霜状态    On
@@ -209,32 +209,32 @@ Variables         Config.py
     Comment    Run Keyword And Continue On Failure    获取后除霜状态    expected=Off
     Sleep    1
     Run Keyword And Continue On Failure    设置空调温度    10.5
-    Sleep    10
-    Run Keyword And Continue On Failure    获取空调温度    expected=17.0
+    Sleep    20
+    Run Keyword And Continue On Failure    获取空调温度    expected=10.5
     Sleep    1
     Run Keyword And Continue On Failure    设置空调温度    25.5
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取空调温度    expected=25.5
     Sleep    1
     Run Keyword And Continue On Failure    设置空调温度    35.5
-    Sleep    10
-    Run Keyword And Continue On Failure    获取空调温度    expected=32.0
+    Sleep    20
+    Run Keyword And Continue On Failure    获取空调温度    expected=35.5
 
 手刹状态
     [Documentation]    上报以下状态：
     ...    "Up" / "Down"
     等待连接成功
-    设置Vehicle上传频率    5
+    设置Vehicle上传频率    1
     Comment    Run Keyword And Continue On Failure    设置手刹状态    Invalid
     Comment    Sleep    10
     Comment    Run Keyword And Continue On Failure    获取手刹状态    expected=Unknown
     Comment    Sleep    1
     Run Keyword And Continue On Failure    设置手刹状态    Up
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取手刹状态    expected=On
     Sleep    1
     Run Keyword And Continue On Failure    设置手刹状态    Down
-    Sleep    10
+    Sleep    20
     Run Keyword And Continue On Failure    获取手刹状态    expected=Off
     Comment    Sleep    1
     Comment    Run Keyword And Continue On Failure    设置手刹状态    Reserved
