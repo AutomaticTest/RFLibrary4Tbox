@@ -9,16 +9,16 @@ git fetch -p
 git merge origin/master
 echo ---Done to update ShecklockLibrary---
 
-for %%tmp in (%scandisk%) do (
-    if exist %%tmp:\Python27\Lib\site-packages (
+for %%i in (%scandisk%) do (
+    if exist %%i:\Python27\Lib\site-packages (
         rem 更新TBoxLibrary程序
-        cd %%tmp:\Python27\Lib\site-packages\TBoxLibrary
+        cd %%i:\Python27\Lib\site-packages\TBoxLibrary
         git clean -df
 		git fetch -p
 		git reset --hard origin/master
 
 		rem 更新RIDE程序
-		xcopy %%tmp:\Python27\Lib\site-packages\TBoxLibrary\Patches\RIDE\testrunnerplugin.py %%tmp:\Python27\Lib\site-packages\robotide\contrib\testrunner\testrunnerplugin.py
+		xcopy /y %%i:\Python27\Lib\site-packages\TBoxLibrary\Patches\RIDE\testrunnerplugin.py %%i:\Python27\Lib\site-packages\robotide\contrib\testrunner\testrunnerplugin.py
     )
 )
 
