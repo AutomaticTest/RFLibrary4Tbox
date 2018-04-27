@@ -240,3 +240,37 @@ Variables         Config.py
     Comment    Run Keyword And Continue On Failure    设置手刹状态    Reserved
     Comment    Sleep    10
     Comment    Run Keyword And Continue On Failure    获取手刹状态    expected=Unknown
+
+车轮胎压
+    等待连接成功
+    设置Vehicle上传频率    3
+    Sleep    3
+    Run Keyword And Continue On Failure    设置左前车轮胎压    _1_6_bar
+    Run Keyword And Continue On Failure    设置左后车轮胎压    _3_7_bar
+    Run Keyword And Continue On Failure    设置右前车轮胎压    _2_8_bar
+    Run Keyword And Continue On Failure    设置右后车轮胎压    _3_8_bar
+    Sleep    10
+    Run Keyword And Continue On Failure    获取左前车轮胎压    expected=_1_6_bar
+    Run Keyword And Continue On Failure    获取左后车轮胎压    expected=_2_8_bar
+    Run Keyword And Continue On Failure    获取右前车轮胎压    expected=_3_7_bar
+    Run Keyword And Continue On Failure    获取右后车轮胎压    expected=_3_8_bar
+    sleep    3
+    Run Keyword And Continue On Failure    设置左前车轮胎压    _1_1_bar
+    sleep    5
+    Run Keyword And Continue On Failure    获取左前车轮胎压    expected=_1_1_bar
+    sleep    3
+    Run Keyword And Continue On Failure    设置左前车轮胎压    _2_1_bar
+    sleep    10
+    Run Keyword And Continue On Failure    获取左前车轮胎压    expected=_2_1_bar
+    sleep    3
+    Run Keyword And Continue On Failure    设置左前车轮胎压    _3_1_bar
+    sleep    10
+    Run Keyword And Continue On Failure    获取左前车轮胎压    expected=_3_1_bar
+    sleep    3
+    Run Keyword And Continue On Failure    设置右后车轮胎压    _4_0_bar
+    sleep    10
+    Run Keyword And Continue On Failure    获取右后车轮胎压    expected=_4_0_bar
+    sleep    3
+    Run Keyword And Continue On Failure    设置右后车轮胎压    _3_9_bar
+    sleep    10
+    Run Keyword And Continue On Failure    获取右后车轮胎压    expected=_3_9_bar

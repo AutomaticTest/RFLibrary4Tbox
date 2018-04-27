@@ -436,7 +436,7 @@ Library           TBoxLibrary
     ...    | 设置变速箱状态 | Z3 |
     ...    | Comment | Invalid |
     ...    | 设置变速箱状态 | Invalid |
-    Request Can Config    GEAR_STS    ${status}
+    Request Can Config    GEAR_POS_REQ    ${status}
 
 获取变速箱状态
     [Arguments]    ${expected}=Unknown
@@ -477,7 +477,7 @@ Library           TBoxLibrary
     ...    | 获取变速箱状态 | expected=Z3 |
     ...    | Comment | CAN: Invalid |
     ...    | 获取变速箱状态 | expected=Invalid |
-    ${retval}    Request Can Data    GEAR_STS
+    ${retval}    Request Can Data    GEAR_POS_REQ
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置PEPS状态
@@ -525,4 +525,112 @@ Library           TBoxLibrary
     ...    | Comment | CAN:InvalidValue1/InvalidValue2/Invalid |
     ...    | 获取PEPS状态 | expected=Invalid |
     ${retval}    Request Can Data    PEPS_STS
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置左前车轮胎压
+    [Arguments]    ${status}
+    [Documentation]    设置左前车轮胎压
+    ...
+    ...    <status>: Bar
+    ...
+    ...    Example(For CAN):
+    ...    | Comment | 1.0bar |
+    ...    | 设置左前车轮胎压 | _1_0_bar |
+    ...    | Comment | 4.0bar |
+    ...    | 设置左前车轮胎压 | _4_0_bar |
+    Request Can Config    LF_TIRE_PRESSURE_REQ    ${status}
+
+获取左前车轮胎压
+    [Arguments]    ${expected}=_1_0_bar
+    [Documentation]    获取左前车轮胎压
+    ...
+    ...    [expected]: 期望返回值(Kpa)
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN:1.0bar |
+    ...    | 获取左前车轮胎压 | expected=_1_0_bar |
+    ...    | Comment | CAN:4.0bar |
+    ...    | 获取左前车轮胎压 | expected=_4_0_bar |
+    ${retval}    Request Can Data    LF_TIRE_PRESSURE_REQ
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置右前车轮胎压
+    [Arguments]    ${status}
+    [Documentation]    设置右前车轮胎压
+    ...
+    ...    <status>: Bar
+    ...
+    ...    Example(For CAN):
+    ...    | Comment | 1.0bar |
+    ...    | 设置右前车轮胎压 | _1_0_bar |
+    ...    | Comment | 4.0bar |
+    ...    | 设置右前车轮胎压 | _4_0_bar |
+    Request Can Config    RF_TIRE_PRESSURE_REQ    ${status}
+
+获取右前车轮胎压
+    [Arguments]    ${expected}=_1_0_bar
+    [Documentation]    获取右前车轮胎压
+    ...
+    ...    [expected]: 期望返回值(Kpa)
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN:1.0bar |
+    ...    | 获取右前车轮胎压 | expected=_1_0_bar |
+    ...    | Comment | CAN:4.0bar |
+    ...    | 获取右前车轮胎压 | expected=_4_0_bar |
+    ${retval}    Request Can Data    RF_TIRE_PRESSURE_REQ
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置左后车轮胎压
+    [Arguments]    ${status}
+    [Documentation]    设置左后车轮胎压
+    ...
+    ...    <status>: Bar
+    ...
+    ...    Example(For CAN):
+    ...    | Comment | 1.0bar |
+    ...    | 设置左后车轮胎压 | _1_0_bar |
+    ...    | Comment | 4.0bar |
+    ...    | 设置左后车轮胎压 | _4_0_bar |
+    Request Can Config    LR_TIRE_PRESSURE_REQ    ${status}
+
+获取左后车轮胎压
+    [Arguments]    ${expected}=_1_0_bar
+    [Documentation]    获取左后车轮胎压
+    ...
+    ...    [expected]: 期望返回值(Kpa)
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN:1.0bar |
+    ...    | 获取左后车轮胎压 | expected=_1_0_bar |
+    ...    | Comment | CAN:4.0bar |
+    ...    | 获取左后车轮胎压 | expected=_4_0_bar |
+    ${retval}    Request Can Data    LR_TIRE_PRESSURE_REQ
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置右后车轮胎压
+    [Arguments]    ${status}
+    [Documentation]    设置右后车轮胎压
+    ...
+    ...    <status>: Bar
+    ...
+    ...    Example(For CAN):
+    ...    | Comment | 1.0bar |
+    ...    | 设置右后车轮胎压 | _1_0_bar |
+    ...    | Comment | 4.0bar |
+    ...    | 设置右后车轮胎压 | _4_0_bar |
+    Request Can Config    RR_TIRE_PRESSURE_REQ    ${status}
+
+获取右后车轮胎压
+    [Arguments]    ${expected}=_1_0_bar
+    [Documentation]    获取右后车轮胎压
+    ...
+    ...    [expected]: 期望返回值(Kpa)
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN:1.0bar |
+    ...    | 获取右后车轮胎压 | expected=_1_0_bar |
+    ...    | Comment | CAN:4.0bar |
+    ...    | 获取右后车轮胎压 | expected=_4_0_bar |
+    ${retval}    Request Can Data    RR_TIRE_PRESSURE_REQ
     Should Be Equal As Strings    ${retval}    ${expected}
