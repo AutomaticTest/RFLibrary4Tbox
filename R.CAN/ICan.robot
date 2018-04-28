@@ -13,7 +13,7 @@ Library           TBoxLibrary
     ...    | 设置左前门状态 | Open |
     ...    | Comment | 关闭左前门 |
     ...    | 设置左前门状态 | Close |
-    Request Can Config    LEFT_FRONT_DOOR_STS    ${status}
+    Request Can Config    LF_DOOR_REQ    ${status}
 
 获取左前门状态
     [Arguments]    ${expected}=Unknown
@@ -26,7 +26,7 @@ Library           TBoxLibrary
     ...    | 获取左前门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左前门状态 | expected=Off |
-    ${retval}    Request Can Data    LEFT_FRONT_DOOR_STS
+    ${retval}    Request Can Data    LF_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右前门状态
@@ -40,7 +40,7 @@ Library           TBoxLibrary
     ...    | 设置右前门状态 | Open |
     ...    | Comment | 关闭右前门 |
     ...    | 设置右前门状态 | Close |
-    Request Can Config    RIGHT_FRONT_DOOR_STS    ${status}
+    Request Can Config    RF_DOOR_REQ    ${status}
 
 获取右前门状态
     [Arguments]    ${expected}=Unknown
@@ -53,7 +53,7 @@ Library           TBoxLibrary
     ...    | 获取右前门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右前门状态 | expected=Off |
-    ${retval}    Request Can Data    RIGHT_FRONT_DOOR_STS
+    ${retval}    Request Can Data    RF_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左后门状态
@@ -67,7 +67,7 @@ Library           TBoxLibrary
     ...    | 设置左后门状态 | Open |
     ...    | Comment | 关闭左后门 |
     ...    | 设置左后门状态 | Close |
-    Request Can Config    LEFT_REAR_DOOR_STS    ${status}
+    Request Can Config    LR_DOOR_REQ    ${status}
 
 获取左后门状态
     [Arguments]    ${expected}=Unknown
@@ -80,7 +80,7 @@ Library           TBoxLibrary
     ...    | 获取左后门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左后门状态 | expected=Off |
-    ${retval}    Request Can Data    LEFT_REAR_DOOR_STS
+    ${retval}    Request Can Data    LR_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右后门状态
@@ -94,7 +94,7 @@ Library           TBoxLibrary
     ...    | 设置右后门状态 | Open |
     ...    | Comment | 关闭右后门 |
     ...    | 设置右后门状态 | Close |
-    Request Can Config    RIGHT_REAR_DOOR_STS    ${status}
+    Request Can Config    RR_DOOR_REQ    ${status}
 
 获取右后门状态
     [Arguments]    ${expected}=Unknown
@@ -107,7 +107,7 @@ Library           TBoxLibrary
     ...    | 获取右后门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右后门状态 | expected=Off |
-    ${retval}    Request Can Data    RIGHT_REAR_DOOR_STS
+    ${retval}    Request Can Data    RR_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置后备箱状态
@@ -121,7 +121,7 @@ Library           TBoxLibrary
     ...    | 设置后备箱状态 | Open |
     ...    | Comment | 关闭后备箱 |
     ...    | 设置后备箱状态 | Close |
-    Request Can Config    TRUNK_DOOR_STS    ${status}
+    Request Can Config    TRUNK_DOOR_REQ    ${status}
 
 获取后备箱状态
     [Arguments]    ${expected}=Unknown
@@ -134,7 +134,7 @@ Library           TBoxLibrary
     ...    | 获取后备箱状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取后备箱状态 | expected=Off |
-    ${retval}    Request Can Data    TRUNK_DOOR_STS
+    ${retval}    Request Can Data    TRUNK_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置门锁状态
@@ -224,7 +224,7 @@ Library           TBoxLibrary
     ...    | 设置空调状态 | On |
     ...    | Comment | 关闭空调 |
     ...    | 设置空调状态 | Off |
-    Request Can Config    AC_STS    ${status}
+    Request Can Config    AC_REQ    ${status}
 
 获取空调状态
     [Arguments]    ${expected}=Unknown
@@ -237,7 +237,7 @@ Library           TBoxLibrary
     ...    | 获取空调状态 | expected=On |
     ...    | Comment | CAN: Off |
     ...    | 获取空调状态 | expected=Off |
-    ${retval}    Request Can Data    AC_STS
+    ${retval}    Request Can Data    AC_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置前除霜状态
@@ -251,7 +251,7 @@ Library           TBoxLibrary
     ...    | 设置前除霜状态 | On |
     ...    | Comment | 关闭前除霜 |
     ...    | 设置前除霜状态 | Off |
-    Request Can Config    FRONT_DEFROST_STS    ${status}
+    Request Can Config    FRONT_DEFROST_REQ    ${status}
 
 获取前除霜状态
     [Arguments]    ${expected}=Unknown
@@ -264,7 +264,7 @@ Library           TBoxLibrary
     ...    | 获取前除霜状态 | expected=On |
     ...    | Comment | CAN: Off |
     ...    | 获取前除霜状态 | expected=Off |
-    ${retval}    Request Can Data    FRONT_DEFROST_STS
+    ${retval}    Request Can Data    FRONT_DEFROST_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置后除霜状态
@@ -278,7 +278,7 @@ Library           TBoxLibrary
     ...    | 设置后除霜状态 | On |
     ...    | Comment | 关闭后除霜 |
     ...    | 设置后除霜状态 | Off |
-    Request Can Config    REAR_DEFROST_STS    ${status}
+    Request Can Config    REAR_DEFROST_REQ    ${status}
 
 获取后除霜状态
     [Arguments]    ${expected}=Unknown
@@ -291,7 +291,7 @@ Library           TBoxLibrary
     ...    | 获取后除霜状态 | expected=On |
     ...    | Comment | CAN:Off |
     ...    | 获取后除霜状态 | expected=Off |
-    ${retval}    Request Can Data    REAR_DEFROST_STS
+    ${retval}    Request Can Data    REAR_DEFROST_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置空调温度
@@ -303,7 +303,7 @@ Library           TBoxLibrary
     ...    Example(for CAN):
     ...    | Comment | 设置空调温度 |
     ...    | 设置空调温度 | 25.5 |
-    Request Can Config    AC_TEMPERATURE    ${status}
+    Request Can Config    AC_TEMPERATURE_REQ    ${status}
 
 获取空调温度
     [Arguments]    ${expected}=25.5
@@ -313,7 +313,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取空调温度 | expected=25.5 |
-    ${retval}    Request Can Data    AC_TEMPERATURE
+    ${retval}    Request Can Data    AC_TEMPERATURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置发动机状态
@@ -633,4 +633,139 @@ Library           TBoxLibrary
     ...    | Comment | CAN:4.0bar |
     ...    | 获取右后车轮胎压 | expected=_4_0_bar |
     ${retval}    Request Can Data    RR_TIRE_PRESSURE_REQ
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置左前窗状态
+    [Arguments]    ${status}
+    [Documentation]    设置左前窗状态
+    ...
+    ...    <status>: 状态
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 打开左前窗 |
+    ...    | 设置左前窗状态 | Open |
+    ...    | Comment | 关闭左前窗 |
+    ...    | 设置左前窗状态 | Close |
+    Request Can Config    LF_WINDOW_REQ    ${status}
+
+设置右前窗状态
+    [Arguments]    ${status}
+    [Documentation]    设置右前窗状态
+    ...
+    ...    <status>: 状态
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 打开右前窗 |
+    ...    | 设置右前窗状态 | Open |
+    ...    | Comment | 关闭右前窗 |
+    ...    | 设置右前窗状态 | Close |
+    Request Can Config    RF_WINDOW_REQ    ${status}
+
+设置左后窗状态
+    [Arguments]    ${status}
+    [Documentation]    设置左后窗状态
+    ...
+    ...    <status>: 状态
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 打开左后窗 |
+    ...    | 设置左后窗状态 | Open |
+    ...    | Comment | 关闭左后窗 |
+    ...    | 设置左后窗状态 | Close |
+    Request Can Config    LR_WINDOW_REQ    ${status}
+
+设置右后窗状态
+    [Arguments]    ${status}
+    [Documentation]    设置右后窗状态
+    ...
+    ...    <status>: 状态
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 打开右后窗 |
+    ...    | 设置右后窗状态 | Open |
+    ...    | Comment | 关闭右后窗 |
+    ...    | 设置右后窗状态 | Close |
+    Request Can Config    RR_WINDOW_REQ    ${status}
+
+获取左前窗状态
+    [Arguments]    ${expected}=Unknown
+    [Documentation]    获取左前窗状态
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN: Open |
+    ...    | 获取左前窗状态 | expected=On |
+    ...    | Comment | CAN: Close |
+    ...    | 获取左前窗状态 | expected=Off |
+    ${retval}    Request Can Data    LF_WINDOW_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+获取右前窗状态
+    [Arguments]    ${expected}=Unknown
+    [Documentation]    获取右前窗状态
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN: Open |
+    ...    | 获取右前窗状态 | expected=On |
+    ...    | Comment | CAN: Close |
+    ...    | 获取右前窗状态 | expected=Off |
+    ${retval}    Request Can Data    RF_WINDOW_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+获取左后窗状态
+    [Arguments]    ${expected}=Unknown
+    [Documentation]    获取左后窗状态
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN: Open |
+    ...    | 获取左后窗状态 | expected=On |
+    ...    | Comment | CAN: Close |
+    ...    | 获取左后窗状态 | expected=Off |
+    ${retval}    Request Can Data    LR_WINDOW_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+获取右后窗状态
+    [Arguments]    ${expected}=Unknown
+    [Documentation]    获取右后窗状态
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN: Open |
+    ...    | 获取右后窗状态 | expected=On |
+    ...    | Comment | CAN: Close |
+    ...    | 获取右后窗状态 | expected=Off |
+    ${retval}    Request Can Data    RR_WINDOW_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置天窗状态
+    [Arguments]    ${status}
+    [Documentation]    设置天窗状态
+    ...
+    ...    <status>: 状态
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 打开天窗 |
+    ...    | 设置天窗状态 | Open |
+    ...    | Comment | 关闭天窗 |
+    ...    | 设置天窗状态 | Close |
+    Request Can Config    ROOF_WINDOW_REQ    ${status}
+
+获取天窗状态
+    [Arguments]    ${expected}=Unknown
+    [Documentation]    获取天窗状态
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | Comment | CAN: Open |
+    ...    | 获取天窗状态 | expected=On |
+    ...    | Comment | CAN: Close |
+    ...    | 获取天窗状态 | expected=Off |
+    ${retval}    Request Can Data    ROOF_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}

@@ -103,8 +103,7 @@ Variables         Config.py
     Run Keyword And Continue On Failure    获取变速箱状态    expected=S
 
 车门状态
-    [Documentation]    上报以下状态：
-    ...    "左前门" / "右前门" / "左后门" / "右后门" / "后备箱" / "门锁"
+    [Documentation]    "左前门" / "右前门" / "左后门" / "右后门" / "后备箱" / "门锁"
     等待连接成功
     设置Vehicle上传频率    1
     Run Keyword And Continue On Failure    设置左前门状态    Open
@@ -151,47 +150,47 @@ Variables         Config.py
     Comment    Sleep    10
     Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Off
     Comment    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    Unlock
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Off
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    Locked
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=On
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    Error
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    Invalid
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    InvalidValue1
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    InvalidValue2
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
-    Sleep    1
-    Run Keyword And Continue On Failure    设置门锁状态    InitialValue
-    Sleep    10
-    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    Unlock
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Off
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    Locked
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=On
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    Error
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    Invalid
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    InvalidValue1
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    InvalidValue2
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
+    Comment    Sleep    1
+    Comment    Run Keyword And Continue On Failure    设置门锁状态    InitialValue
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取门锁状态    expected=Unknown
 
 空调状态
-    [Documentation]    上报以下状态：
-    ...    "前除霜" / "空调温度"
+    [Documentation]    "空调状态" / "前除霜" / "后除霜" / "空调温度"
     等待连接成功
     设置Vehicle上传频率    1
-    Comment    Run Keyword And Continue On Failure    设置空调状态    On
-    Comment    Sleep    10
-    Comment    Run Keyword And Continue On Failure    获取空调状态    expected=On
-    Comment    Sleep    1
-    Comment    Run Keyword And Continue On Failure    设置空调状态    Off
-    Comment    Sleep    10
-    Comment    Run Keyword And Continue On Failure    获取空调状态    expected=Off
-    Comment    Sleep    1
+    Run Keyword And Continue On Failure    设置空调状态    On
+    Sleep    10
+    Run Keyword And Continue On Failure    获取空调状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置空调状态    Off
+    Sleep    10
+    Run Keyword And Continue On Failure    获取空调状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置空调状态    On
     Run Keyword And Continue On Failure    设置前除霜状态    On
     Sleep    20
     Run Keyword And Continue On Failure    获取前除霜状态    expected=On
@@ -199,14 +198,14 @@ Variables         Config.py
     Run Keyword And Continue On Failure    设置前除霜状态    Off
     Sleep    20
     Run Keyword And Continue On Failure    获取前除霜状态    expected=Off
-    Comment    Sleep    1
-    Comment    Run Keyword And Continue On Failure    设置后除霜状态    On
-    Comment    Sleep    10
-    Comment    Run Keyword And Continue On Failure    获取后除霜状态    expected=On
-    Comment    Sleep    1
-    Comment    Run Keyword And Continue On Failure    设置后除霜状态    Off
-    Comment    Sleep    10
-    Comment    Run Keyword And Continue On Failure    获取后除霜状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置后除霜状态    On
+    Sleep    10
+    Run Keyword And Continue On Failure    获取后除霜状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置后除霜状态    Off
+    Sleep    10
+    Run Keyword And Continue On Failure    获取后除霜状态    expected=Off
     Sleep    1
     Run Keyword And Continue On Failure    设置空调温度    10.5
     Sleep    20
@@ -274,3 +273,48 @@ Variables         Config.py
     Run Keyword And Continue On Failure    设置右后车轮胎压    _3_9_bar
     sleep    10
     Run Keyword And Continue On Failure    获取右后车轮胎压    expected=_3_9_bar
+
+车窗状态
+    [Documentation]    "左前窗" / "右前窗" / "左后窗" / "右后窗" / "天窗"
+    等待连接成功
+    设置Vehicle上传频率    1
+    Run Keyword And Continue On Failure    设置左前窗状态    Opened
+    Sleep    10
+    Run Keyword And Continue On Failure    获取左前窗状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置左前窗状态    Closed
+    Sleep    10
+    Run Keyword And Continue On Failure    获取左前窗状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置右前窗状态    Opened
+    Sleep    10
+    Run Keyword And Continue On Failure    获取右前窗状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置右前窗状态    Closed
+    Sleep    10
+    Run Keyword And Continue On Failure    获取右前窗状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置左后窗状态    Opened
+    Sleep    10
+    Run Keyword And Continue On Failure    获取左后窗状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置左后窗状态    Closed
+    Sleep    10
+    Run Keyword And Continue On Failure    获取左后窗状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置右后窗状态    Opened
+    Sleep    10
+    Run Keyword And Continue On Failure    获取右后窗状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置右后窗状态    Closed
+    Sleep    10
+    Run Keyword And Continue On Failure    获取右后窗状态    expected=Off
+    Sleep    1
+    Run Keyword And Continue On Failure    设置天窗状态    FullyOpen
+    Sleep    10
+    Run Keyword And Continue On Failure    获取天窗状态    expected=On
+    Sleep    1
+    Run Keyword And Continue On Failure    设置天窗状态    FullyClose
+    Sleep    10
+    Run Keyword And Continue On Failure    获取天窗状态    expected=Off
+    Sleep    1
