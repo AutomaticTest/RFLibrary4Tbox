@@ -160,7 +160,7 @@ Library           TBoxLibrary
     ...    | 设置门锁状态 | InvalidValue2 |
     ...    | Comment | 初始化值 |
     ...    | 设置门锁状态 | InitialValue |
-    Request Can Config    DOOR_LOCK_STS    ${status}
+    Request Can Config    LOCK_DOOR_REQ    ${status}
 
 获取门锁状态
     [Arguments]    ${expected}=Unknown
@@ -175,7 +175,7 @@ Library           TBoxLibrary
     ...    | 获取门锁状态 | expected=On |
     ...    | Comment | CAN: Error/Invalid/InvalidValue1/InvalidValue2 |
     ...    | 获取门锁状态 | expected=Unknown |
-    ${retval}    Request Can Data    DOOR_LOCK_STS
+    ${retval}    Request Can Data    LOCK_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置手刹状态
@@ -193,7 +193,7 @@ Library           TBoxLibrary
     ...    | 设置手刹状态 | Down |
     ...    | Comment | Reserved |
     ...    | 设置手刹状态 | Reserved |
-    Request Can Config    HANDBRAKE_STS    ${status}
+    Request Can Config    HANDBRAKE_REQ    ${status}
 
 获取手刹状态
     [Arguments]    ${expected}=Up
@@ -210,7 +210,7 @@ Library           TBoxLibrary
     ...    | 获取手刹状态 | expected=Off |
     ...    | Comment | CAN: Reserved |
     ...    | 获取手刹状态 | expected=Unknown |
-    ${retval}    Request Can Data    HANDBRAKE_STS
+    ${retval}    Request Can Data    HANDBRAKE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置空调状态
@@ -331,12 +331,7 @@ Library           TBoxLibrary
     ...    | 设置发动机状态 | Cranking |
     ...    | Comment | 运行中 |
     ...    | 设置发动机状态 | Running |
-    Request Can Config    ENGINE_STS    ${status}
-    Run Keyword If    '${status}' == 'KeyOff'    设置PEPS状态    Off
-    ...    ELSE IF    '${status}' == 'KeyOn'    设置PEPS状态    On
-    ...    ELSE IF    '${status}' == 'Cranking'    设置PEPS状态    Start
-    ...    ELSE IF    '${status}' == 'Running'    设置PEPS状态    Start
-    ...    ELSE    设置PEPS状态    Invalid
+    Request Can Config    ENGINE_REQ    ${status}
 
 获取发动机状态
     [Arguments]    ${expected}=KeyOff
@@ -353,7 +348,7 @@ Library           TBoxLibrary
     ...    | 获取发动机状态 | expected=Cranking |
     ...    | Comment | CAN: Running |
     ...    | 获取发动机状态 | expected=Running |
-    ${retval}    Request Can Data    ENGINE_STS
+    ${retval}    Request Can Data    ENGINE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置雨刷状态
@@ -379,7 +374,7 @@ Library           TBoxLibrary
     ...    | 设置雨刷状态 | SwitchFailure |
     ...    | Comment | Invalid |
     ...    | 设置雨刷状态 | Invalid |
-    Request Can Config    WIPER_STS    ${status}
+    Request Can Config    WIPER_REQ    ${status}
 
 获取雨刷状态
     [Arguments]    ${expected}=Unknown
@@ -394,7 +389,7 @@ Library           TBoxLibrary
     ...    | 获取雨刷状态 | expected=On |
     ...    | Comment | CAN: Interrupt/Reserved/Invalid |
     ...    | 获取雨刷状态 | expected=Unknown |
-    ${retval}    Request Can Data    WIPER_STS
+    ${retval}    Request Can Data    WIPER_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置变速箱状态
@@ -477,7 +472,7 @@ Library           TBoxLibrary
     ...    | 获取变速箱状态 | expected=Z3 |
     ...    | Comment | CAN: Invalid |
     ...    | 获取变速箱状态 | expected=Invalid |
-    ${retval}    Request Can Data    GEAR_POS_REQ
+    ${retval}    Request Can Data    GEAR_POS_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置PEPS状态
@@ -503,7 +498,7 @@ Library           TBoxLibrary
     ...    | 设置PEPS状态 | InvalidValue2 |
     ...    | Comment | Invalid |
     ...    | 设置PEPS状态 | Invalid |
-    Request Can Config    PEPS_STS    ${status}
+    Request Can Config    PEPS_POWER_REQ    ${status}
 
 获取PEPS状态
     [Arguments]    ${expected}=Default
@@ -524,7 +519,7 @@ Library           TBoxLibrary
     ...    | 获取PEPS状态 | expected=Start |
     ...    | Comment | CAN:InvalidValue1/InvalidValue2/Invalid |
     ...    | 获取PEPS状态 | expected=Invalid |
-    ${retval}    Request Can Data    PEPS_STS
+    ${retval}    Request Can Data    PEPS_POWER_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左前车轮胎压
