@@ -546,7 +546,7 @@ Library           TBoxLibrary
     ...    | 获取左前车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取左前车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    LF_TIRE_PRESSURE_REQ
+    ${retval}    Request Can Data    LF_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右前车轮胎压
@@ -573,7 +573,7 @@ Library           TBoxLibrary
     ...    | 获取右前车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取右前车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    RF_TIRE_PRESSURE_REQ
+    ${retval}    Request Can Data    RF_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左后车轮胎压
@@ -600,7 +600,7 @@ Library           TBoxLibrary
     ...    | 获取左后车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取左后车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    LR_TIRE_PRESSURE_REQ
+    ${retval}    Request Can Data    LR_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右后车轮胎压
@@ -627,7 +627,7 @@ Library           TBoxLibrary
     ...    | 获取右后车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取右后车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    RR_TIRE_PRESSURE_REQ
+    ${retval}    Request Can Data    RR_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左前窗状态
@@ -763,4 +763,208 @@ Library           TBoxLibrary
     ...    | Comment | CAN: Close |
     ...    | 获取天窗状态 | expected=Off |
     ${retval}    Request Can Data    ROOF_WINDOW_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置剩余油量
+    [Arguments]    ${status}
+    [Documentation]    设置剩余油量
+    ...
+    ...    <oil>: 油量
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置剩余油量 |
+    ...    | 设置剩余油量 | 60 |
+    Request Can Config    FUEL_LEVEL_REQ    ${status}
+
+获取剩余油量
+    [Arguments]    ${expected}=60
+    [Documentation]    获取剩余油量
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取剩余油量 | expected=60 |
+    ${retval}    Request Can Data    FUEL_LEVEL_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置续航里程
+    [Arguments]    ${status}
+    [Documentation]    设置续航里程
+    ...
+    ...    <km>: 千米
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置续航里程 |
+    ...    | 设置续航里程 | 100 |
+    Request Can Config    REMAIN_MILEAGE_REQ    ${status}
+
+获取续航里程
+    [Arguments]    ${expected}=60
+    [Documentation]    获取续航里程
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取续航里程 | expected=60 |
+    ${retval}    Request Can Data    REMAIN_MILEAGE_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置瞬时油耗
+    [Arguments]    ${status}
+    [Documentation]    设置瞬时油耗
+    ...
+    ...    <lkm>: L/Km
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置瞬时油耗 |
+    ...    | 设置瞬时油耗 | 30 |
+    Request Can Config    CURR_FUEL_CONSUMPTION_REQ    ${status}
+
+获取瞬时油耗
+    [Arguments]    ${expected}=60
+    [Documentation]    获取瞬时油耗
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取瞬时油耗 | expected=60 |
+    ${retval}    Request Can Data    CURR_FUEL_CONSUMPTION_RESP
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置瞬时车速
+    [Arguments]    ${status}
+    [Documentation]    设置瞬时车速
+    ...
+    ...    <hkm>: H/Km
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置瞬时车速 |
+    ...    | 设置瞬时车速 | 40 |
+    Request Can Config    CURR_SPEED_REQ    ${status}
+
+获取瞬时车速
+    [Arguments]    ${expected}=40
+    [Documentation]    获取瞬时车速
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取瞬时车速 | expected=40 |
+    ${retval}    Request Can Data    CURR_SPEED_RESP
+    ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
+    Should Be Equal As Strings    ${retval}    True
+
+设置发动机转速
+    [Arguments]    ${status}
+    [Documentation]    设置发动机转速
+    ...
+    ...    <rpm>: rpm
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置发动机转速 |
+    ...    | 设置发动机转速 | 2000 |
+    Request Can Config    ENGINE_SPEED_REQ    ${status}
+
+获取发动机转速
+    [Arguments]    ${expected}=2000
+    [Documentation]    获取发动机转速
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取发动机转速 | expected=2000 |
+    ${retval}    Request Can Data    ENGINE_SPEED_RESP
+    ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
+    Should Be Equal As Strings    ${retval}    True
+
+设置方向盘转角
+    [Arguments]    ${status}
+    [Documentation]    设置方向盘转角
+    ...
+    ...    <deg>: deg
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置方向盘转角 |
+    ...    | 设置方向盘转角 | -100 |
+    Request Can Config    STEERING_ANGLE_REQ    ${status}
+
+获取方向盘转角
+    [Arguments]    ${expected}=-100
+    [Documentation]    获取方向盘转角
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取方向盘转角 | expected=-100 |
+    ${retval}    Request Can Data    STEERING_ANGLE_RESP
+    ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
+    Should Be Equal As Strings    ${retval}    True
+
+设置油门脚踏板角度
+    [Arguments]    ${status}
+    [Documentation]    设置油门脚踏板角度
+    ...
+    ...    <deg>: deg
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置油门脚踏板角度 |
+    ...    | 设置油门脚踏板角度 | 65 |
+    Request Can Config    ACCELERATOR_PEDAL_ANGLE_REQ    ${status}
+
+获取油门脚踏板角度
+    [Arguments]    ${expected}=-100
+    [Documentation]    获取油门脚踏板角度
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取油门脚踏板角度 | expected=65 |
+    ${retval}    Request Can Data    ACCELERATOR_PEDAL_ANGLE_RESP
+    ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
+    Should Be Equal As Strings    ${retval}    True
+
+设置累计里程
+    [Arguments]    ${status}
+    [Documentation]    设置累计里程
+    ...
+    ...    <km>: Km
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置累计里程 |
+    ...    | 设置累计里程 | 25000 |
+    Request Can Config    TOTAL_MILEAGE_REQ    ${status}
+
+获取累计里程
+    [Arguments]    ${expected}=25000
+    [Documentation]    获取累计里程
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取累计里程 | expected=25000 |
+    ${retval}    Request Can Data    TOTAL_MILEAGE_RESP
+    ${retval}=    Evaluate     unicode(int(float(${retval})))
+    Should Be Equal As Strings    ${retval}    ${expected}
+
+设置平均油耗
+    [Arguments]    ${status}
+    [Documentation]    设置平均油耗
+    ...
+    ...    <lkm>: L/Km
+    ...
+    ...    Example(for CAN):
+    ...    | Comment | 设置平均油耗 |
+    ...    | 设置平均油耗 | 35 |
+    Request Can Config    AVERAGE_FUEL_CONSUMPTION_REQ    ${status}
+
+获取平均油耗
+    [Arguments]    ${expected}=35
+    [Documentation]    获取平均油耗
+    ...
+    ...    [expected]: 期望返回值
+    ...
+    ...    Example(for TSP):
+    ...    | 获取平均油耗 | expected=35 |
+    ${retval}    Request Can Data    AVERAGE_FUEL_CONSUMPTION_RESP
+    ${retval}=    Evaluate     unicode(int(float(${retval})))
     Should Be Equal As Strings    ${retval}    ${expected}
