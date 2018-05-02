@@ -2,11 +2,11 @@
 Documentation     CAN 0(Body)测试套件
 Test Setup        Initialize    ${DEVICE}    ${SERVER}    ${CHANNEL}    ${BAUDRATE}
 Test Teardown     Uninitialize
-Library           TBoxLibrary
-Resource          R.RemoteConfigRequest/IRemoteConfig.robot
-Resource          R.System/IMqttSystem.robot
-Resource          R.CAN/ICan.robot
 Variables         Config.py
+Library           TBoxLibrary
+Resource          R.CAN/ICan.robot
+Resource          R.System/IMqttSystem.robot
+Resource          R.RemoteConfigRequest/IRemoteConfig.robot
 
 *** Test Cases ***
 发动机状态

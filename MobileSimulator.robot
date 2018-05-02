@@ -2,24 +2,32 @@
 Documentation     手机模拟测试套件
 Test Setup        Initialize    ${DEVICE}    ${SERVER}    ${CHANNEL}    ${BAUDRATE}
 Test Teardown     Uninitialize
+Variables         Config.py
 Library           TBoxLibrary
 Resource          R.System/IMqttSystem.robot
 Resource          R.RemoteControlCommand/IAircondition.robot
-Variables         Config.py
 
 *** Test Cases ***
-Aircondition
-    [Documentation]    空调
-    Log    Aircondition
+空调
+    [Documentation]    控制空调
+    Log    远控空调未实现
 
-CentralLocking
-    [Documentation]    中控锁
-    Log    CentralLocking
+发动机
+    [Documentation]    控制发动机
+    Log    远控发动机未实现
 
-FindVehicle
-    [Documentation]    寻车
-    Log    FindVehicle
+中控锁
+    [Documentation]    控制中控锁
+    Log    远控中控锁未实现
 
-Engine
-    [Documentation]    发动机
-    Log    Engine
+车窗
+    [Documentation]    控制车窗
+    Log    远控车窗未实现
+
+座椅加热
+    [Documentation]    控制座椅加热
+    Log    远控座椅加热未实现
+
+追踪
+    [Documentation]    追踪
+    Log    远控追踪未实现
