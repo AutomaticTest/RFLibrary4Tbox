@@ -26,7 +26,7 @@ Library           TBoxLibrary
     ...    | 获取左前门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左前门状态 | expected=Off |
-    ${retval}    Request Can Data    LF_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LF_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右前门状态
@@ -53,7 +53,7 @@ Library           TBoxLibrary
     ...    | 获取右前门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右前门状态 | expected=Off |
-    ${retval}    Request Can Data    RF_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RF_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左后门状态
@@ -80,7 +80,7 @@ Library           TBoxLibrary
     ...    | 获取左后门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左后门状态 | expected=Off |
-    ${retval}    Request Can Data    LR_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LR_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右后门状态
@@ -107,7 +107,7 @@ Library           TBoxLibrary
     ...    | 获取右后门状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右后门状态 | expected=Off |
-    ${retval}    Request Can Data    RR_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RR_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置后备箱状态
@@ -134,7 +134,7 @@ Library           TBoxLibrary
     ...    | 获取后备箱状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取后备箱状态 | expected=Off |
-    ${retval}    Request Can Data    TRUNK_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_TRUNK_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置门锁状态
@@ -175,7 +175,7 @@ Library           TBoxLibrary
     ...    | 获取门锁状态 | expected=On |
     ...    | Comment | CAN: Error/Invalid/InvalidValue1/InvalidValue2 |
     ...    | 获取门锁状态 | expected=Unknown |
-    ${retval}    Request Can Data    LOCK_DOOR_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LOCK_DOOR_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置手刹状态
@@ -210,7 +210,7 @@ Library           TBoxLibrary
     ...    | 获取手刹状态 | expected=Off |
     ...    | Comment | CAN: Reserved |
     ...    | 获取手刹状态 | expected=Unknown |
-    ${retval}    Request Can Data    HANDBRAKE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_HANDBRAKE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置空调状态
@@ -237,7 +237,7 @@ Library           TBoxLibrary
     ...    | 获取空调状态 | expected=On |
     ...    | Comment | CAN: Off |
     ...    | 获取空调状态 | expected=Off |
-    ${retval}    Request Can Data    AC_RESP
+    ${retval}    Request Tsp Data    VEHICLE_AC_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置前除霜状态
@@ -264,7 +264,7 @@ Library           TBoxLibrary
     ...    | 获取前除霜状态 | expected=On |
     ...    | Comment | CAN: Off |
     ...    | 获取前除霜状态 | expected=Off |
-    ${retval}    Request Can Data    FRONT_DEFROST_RESP
+    ${retval}    Request Tsp Data    VEHICLE_FRONT_DEFROST_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置后除霜状态
@@ -291,7 +291,7 @@ Library           TBoxLibrary
     ...    | 获取后除霜状态 | expected=On |
     ...    | Comment | CAN:Off |
     ...    | 获取后除霜状态 | expected=Off |
-    ${retval}    Request Can Data    REAR_DEFROST_RESP
+    ${retval}    Request Tsp Data    VEHICLE_REAR_DEFROST_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置空调温度
@@ -313,7 +313,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取空调温度 | expected=25.5 |
-    ${retval}    Request Can Data    AC_TEMPERATURE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_AC_TEMPERATURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置发动机状态
@@ -348,7 +348,7 @@ Library           TBoxLibrary
     ...    | 获取发动机状态 | expected=Cranking |
     ...    | Comment | CAN: Running |
     ...    | 获取发动机状态 | expected=Running |
-    ${retval}    Request Can Data    ENGINE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_ENGINE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置雨刷状态
@@ -389,7 +389,7 @@ Library           TBoxLibrary
     ...    | 获取雨刷状态 | expected=On |
     ...    | Comment | CAN: Interrupt/Reserved/Invalid |
     ...    | 获取雨刷状态 | expected=Unknown |
-    ${retval}    Request Can Data    WIPER_RESP
+    ${retval}    Request Tsp Data    VEHICLE_WIPER_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置变速箱状态
@@ -472,7 +472,7 @@ Library           TBoxLibrary
     ...    | 获取变速箱状态 | expected=Z3 |
     ...    | Comment | CAN: Invalid |
     ...    | 获取变速箱状态 | expected=Invalid |
-    ${retval}    Request Can Data    GEAR_POS_RESP
+    ${retval}    Request Tsp Data    VEHICLE_GEAR_POS_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置PEPS状态
@@ -519,7 +519,7 @@ Library           TBoxLibrary
     ...    | 获取PEPS状态 | expected=Start |
     ...    | Comment | CAN:InvalidValue1/InvalidValue2/Invalid |
     ...    | 获取PEPS状态 | expected=Invalid |
-    ${retval}    Request Can Data    PEPS_POWER_RESP
+    ${retval}    Request Tsp Data    VEHICLE_PEPS_POWER_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左前车轮胎压
@@ -546,7 +546,7 @@ Library           TBoxLibrary
     ...    | 获取左前车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取左前车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    LF_TIRE_PRESSURE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LF_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右前车轮胎压
@@ -573,7 +573,7 @@ Library           TBoxLibrary
     ...    | 获取右前车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取右前车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    RF_TIRE_PRESSURE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RF_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左后车轮胎压
@@ -600,7 +600,7 @@ Library           TBoxLibrary
     ...    | 获取左后车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取左后车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    LR_TIRE_PRESSURE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LR_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置右后车轮胎压
@@ -627,7 +627,7 @@ Library           TBoxLibrary
     ...    | 获取右后车轮胎压 | expected=_1_0_bar |
     ...    | Comment | CAN:4.0bar |
     ...    | 获取右后车轮胎压 | expected=_4_0_bar |
-    ${retval}    Request Can Data    RR_TIRE_PRESSURE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RR_TIRE_PRESSURE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置左前窗状态
@@ -693,7 +693,7 @@ Library           TBoxLibrary
     ...    | 获取左前窗状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左前窗状态 | expected=Off |
-    ${retval}    Request Can Data    LF_WINDOW_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LF_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 获取右前窗状态
@@ -707,7 +707,7 @@ Library           TBoxLibrary
     ...    | 获取右前窗状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右前窗状态 | expected=Off |
-    ${retval}    Request Can Data    RF_WINDOW_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RF_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 获取左后窗状态
@@ -721,7 +721,7 @@ Library           TBoxLibrary
     ...    | 获取左后窗状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取左后窗状态 | expected=Off |
-    ${retval}    Request Can Data    LR_WINDOW_RESP
+    ${retval}    Request Tsp Data    VEHICLE_LR_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 获取右后窗状态
@@ -735,7 +735,7 @@ Library           TBoxLibrary
     ...    | 获取右后窗状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取右后窗状态 | expected=Off |
-    ${retval}    Request Can Data    RR_WINDOW_RESP
+    ${retval}    Request Tsp Data    VEHICLE_RR_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置天窗状态
@@ -762,7 +762,7 @@ Library           TBoxLibrary
     ...    | 获取天窗状态 | expected=On |
     ...    | Comment | CAN: Close |
     ...    | 获取天窗状态 | expected=Off |
-    ${retval}    Request Can Data    ROOF_WINDOW_RESP
+    ${retval}    Request Tsp Data    VEHICLE_ROOF_WINDOW_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置剩余油量
@@ -784,7 +784,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取剩余油量 | expected=60 |
-    ${retval}    Request Can Data    FUEL_LEVEL_RESP
+    ${retval}    Request Tsp Data    VEHICLE_FUEL_LEVEL_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置续航里程
@@ -806,7 +806,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取续航里程 | expected=60 |
-    ${retval}    Request Can Data    REMAIN_MILEAGE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_REMAIN_MILEAGE_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置瞬时油耗
@@ -828,7 +828,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取瞬时油耗 | expected=60 |
-    ${retval}    Request Can Data    CURR_FUEL_CONSUMPTION_RESP
+    ${retval}    Request Tsp Data    VEHICLE_CURR_FUEL_CONSUMPTION_RESP
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置瞬时车速
@@ -850,7 +850,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取瞬时车速 | expected=40 |
-    ${retval}    Request Can Data    CURR_SPEED_RESP
+    ${retval}    Request Tsp Data    VEHICLE_CURR_SPEED_RESP
     ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
     Should Be Equal As Strings    ${retval}    True
 
@@ -873,7 +873,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取发动机转速 | expected=2000 |
-    ${retval}    Request Can Data    ENGINE_SPEED_RESP
+    ${retval}    Request Tsp Data    VEHICLE_ENGINE_SPEED_RESP
     ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
     Should Be Equal As Strings    ${retval}    True
 
@@ -896,7 +896,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取方向盘转角 | expected=-100 |
-    ${retval}    Request Can Data    STEERING_ANGLE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_STEERING_ANGLE_RESP
     ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
     Should Be Equal As Strings    ${retval}    True
 
@@ -919,7 +919,7 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取油门脚踏板角度 | expected=65 |
-    ${retval}    Request Can Data    ACCELERATOR_PEDAL_ANGLE_RESP
+    ${retval}    Request Tsp Data    VEHICLE_ACCELERATOR_PEDAL_ANGLE_RESP
     ${retval}=    Evaluate    unicode(int(${expected}) - 1 <= int(float(${retval})) <= int(${expected}))
     Should Be Equal As Strings    ${retval}    True
 
@@ -942,8 +942,8 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取累计里程 | expected=25000 |
-    ${retval}    Request Can Data    TOTAL_MILEAGE_RESP
-    ${retval}=    Evaluate     unicode(int(float(${retval})))
+    ${retval}    Request Tsp Data    VEHICLE_TOTAL_MILEAGE_RESP
+    ${retval}=    Evaluate    unicode(int(float(${retval})))
     Should Be Equal As Strings    ${retval}    ${expected}
 
 设置平均油耗
@@ -965,6 +965,6 @@ Library           TBoxLibrary
     ...
     ...    Example(for TSP):
     ...    | 获取平均油耗 | expected=35 |
-    ${retval}    Request Can Data    AVERAGE_FUEL_CONSUMPTION_RESP
-    ${retval}=    Evaluate     unicode(int(float(${retval})))
+    ${retval}    Request Tsp Data    VEHICLE_AVERAGE_FUEL_CONSUMPTION_RESP
+    ${retval}=    Evaluate    unicode(int(float(${retval})))
     Should Be Equal As Strings    ${retval}    ${expected}

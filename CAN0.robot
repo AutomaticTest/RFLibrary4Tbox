@@ -368,7 +368,7 @@ PEPS状态
     Log    MCU未上传
 
 车门锁状态
-    [Documentation]     "门锁"
+    [Documentation]    "门锁"
     等待连接成功
     设置Vehicle上传频率    3
     设置PEPS状态    Start
@@ -402,7 +402,7 @@ PEPS状态
     Sleep    10
     Run Keyword And Continue On Failure    获取续航里程    expected=100
     Sleep    1
-    设置瞬时油耗    30.0
+    设置瞬时油耗    30
     Sleep    10
     Run Keyword And Continue On Failure    获取瞬时油耗    expected=30.0
     Sleep    1
