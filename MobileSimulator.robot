@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     手机模拟测试套件
+Documentation     手机模拟测试套件(调试中)
 Test Setup        Initialize    ${DEVICE}    ${SERVER}    ${CHANNEL}    ${BAUDRATE}
 Test Teardown     Uninitialize
 Variables         Config.py

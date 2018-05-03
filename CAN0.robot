@@ -11,7 +11,11 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
 *** Test Cases ***
 发动机状态
     等待连接成功
+    Log    初始化发动机状态
     设置Vehicle上传频率    3
+    设置PEPS状态    Start
+    设置发动机状态    Running
+    Sleep    5
     设置PEPS状态    Off
     设置发动机状态    KeyOff
     Sleep    10
@@ -44,9 +48,12 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
 雨刷状态
     [Documentation]    雨刷
     等待连接成功
+    Log    初始化雨刷状态
     设置Vehicle上传频率    3
     设置PEPS状态    Start
     设置发动机状态    Running
+    设置雨刷状态    HighSpeed
+    Sleep    5
     设置雨刷状态    Stop
     Sleep    10
     Run Keyword And Continue On Failure    获取雨刷状态    expected=Off
@@ -82,9 +89,12 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
 变速箱状态
     [Documentation]    "P" / "R" / "N" / "D" / "S" / "Manual1" / "Manual2" / "Manual3"
     等待连接成功
+    Log    初始化变速箱状态
     设置Vehicle上传频率    3
     设置PEPS状态    Start
     设置发动机状态    Running
+    设置变速箱状态    S
+    Sleep    5
     设置变速箱状态    P
     Sleep    10
     Run Keyword And Continue On Failure    获取变速箱状态    expected=P
