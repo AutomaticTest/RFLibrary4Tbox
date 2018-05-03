@@ -15,7 +15,7 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
     设置Vehicle上传频率    3
     设置PEPS状态    Start
     设置发动机状态    Running
-    Sleep    5
+    Sleep    10
     设置PEPS状态    Off
     设置发动机状态    KeyOff
     Sleep    10
