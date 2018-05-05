@@ -8,6 +8,6 @@ Library           TBoxLibrary
     ...
     ...    Example:
     ...    | 等待连接成功 | expected=True |
-    [Timeout]    3 minutes
+    [Timeout]    5 minutes
     ${retval}=    Wait Until Ready
     Should Be Equal As Strings    ${retval}    ${expected}

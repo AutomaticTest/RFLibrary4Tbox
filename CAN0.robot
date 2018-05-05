@@ -320,11 +320,11 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
     Sleep    1
     设置天窗状态    VentArea
     Sleep    10
-    Run Keyword And Continue On Failure    获取天窗状态    expected=On
+    Run Keyword And Continue On Failure    获取天窗状态    expected=Unknown
     Sleep    1
     设置天窗状态    AntipinchInVent
     Sleep    10
-    Run Keyword And Continue On Failure    获取天窗状态    expected=On
+    Run Keyword And Continue On Failure    获取天窗状态    expected=Unknown
     Sleep    1
     设置天窗状态    FullyClose
     Sleep    10
@@ -332,17 +332,13 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
     Sleep    1
     设置天窗状态    AntipInchInPartiallySlide
     Sleep    10
-    Run Keyword And Continue On Failure    获取天窗状态    expected=On
+    Run Keyword And Continue On Failure    获取天窗状态    expected=Unknown
     Sleep    1
     设置天窗状态    PartiallySlide
     Sleep    10
-    Run Keyword And Continue On Failure    获取天窗状态    expected=On
+    Run Keyword And Continue On Failure    获取天窗状态    expected=Unknown
     Sleep    1
     设置天窗状态    FullyOpen
-    Sleep    10
-    Run Keyword And Continue On Failure    获取天窗状态    expected=On
-    Sleep    1
-    设置天窗状态    Uninitialized
     Sleep    10
     Run Keyword And Continue On Failure    获取天窗状态    expected=On
 
@@ -368,14 +364,10 @@ PEPS状态
     设置PEPS状态    Start
     Sleep    10
     Run Keyword And Continue On Failure    获取PEPS状态    expected=Start
-    Sleep    1
-    设置PEPS状态    Invalid
-    Sleep    20
-    Run Keyword And Continue On Failure    获取PEPS状态    expected=Invalid
-
-蓄电池电压
-    [Documentation]    *TBox未上传
-    Log    MCU未上传
+    Comment    Sleep    1
+    Comment    设置PEPS状态    Invalid
+    Comment    Sleep    20
+    Comment    Run Keyword And Continue On Failure    获取PEPS状态    expected=Invalid
 
 车门锁状态
     [Documentation]    "门锁"
@@ -431,16 +423,32 @@ PEPS状态
     设置累计里程    250000
     Sleep    10
     Run Keyword And Continue On Failure    获取累计里程    expected=250000
-    Sleep    1
-    设置平均油耗    35
-    Sleep    10
-    Run Keyword And Continue On Failure    获取平均油耗    expected=35
+    Comment    Sleep    1
+    Comment    设置平均油耗    35
+    Comment    Sleep    10
+    Comment    Run Keyword And Continue On Failure    获取平均油耗    expected=35
 
 操控状态
     等待连接成功
     设置Vehicle上传频率    3
     设置PEPS状态    Start
     设置发动机状态    Running
+    Sleep    10
     设置油门脚踏板角度    65
     Sleep    10
     Run Keyword And Continue On Failure    获取油门脚踏板角度    expected=65
+    Log    刹车踏板角度，CAN协议未定义
+
+CAN协议未定义
+    Log    蓄电池电压，未定义
+    Log    刹车踏板角度，未定义
+    Log    离合器踏板角度，未定义
+
+MCU未上传
+    Log    是否系安全带，未上传
+    Log    近光灯状态，未上传
+    Log    远光灯状态，未上传
+    Log    光照强度，未上传
+
+MPU未上传
+    Log    平均油耗，未上传
