@@ -252,8 +252,8 @@ Resource          R.RemoteConfigRequest/IRemoteConfig.robot
     设置右后车轮胎压    _3_8_bar
     Sleep    10
     Run Keyword And Continue On Failure    获取左前车轮胎压    expected=_1_6_bar
-    Run Keyword And Continue On Failure    获取左后车轮胎压    expected=_2_8_bar
-    Run Keyword And Continue On Failure    获取右前车轮胎压    expected=_3_7_bar
+    Run Keyword And Continue On Failure    获取左后车轮胎压    expected=_3_7_bar
+    Run Keyword And Continue On Failure    获取右前车轮胎压    expected=_2_8_bar
     Run Keyword And Continue On Failure    获取右后车轮胎压    expected=_3_8_bar
     sleep    3
     设置左前车轮胎压    _1_1_bar
