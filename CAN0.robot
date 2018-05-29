@@ -423,10 +423,10 @@ PEPS状态
     设置累计里程    250000
     Sleep    10
     Run Keyword And Continue On Failure    获取累计里程    expected=250000
-    Comment    Sleep    1
-    Comment    设置平均油耗    35
-    Comment    Sleep    10
-    Comment    Run Keyword And Continue On Failure    获取平均油耗    expected=35
+    Sleep    1
+    设置平均油耗    35
+    Sleep    10
+    Run Keyword And Continue On Failure    获取平均油耗    expected=35
 
 操控状态
     等待连接成功
@@ -449,6 +449,3 @@ MCU未上传
     Log    近光灯状态，未上传
     Log    远光灯状态，未上传
     Log    光照强度，未上传
-
-MPU未上传
-    Log    平均油耗，未上传
